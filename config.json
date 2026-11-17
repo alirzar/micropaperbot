@@ -1,0 +1,116 @@
+{
+  "name": "Microbiome Paper Bot",
+  "field": {
+    "name": "microbiome",
+    "papers": "microbiome and early-life papers",
+    "general_examples": "Nature Communications or Frontiers in Microbiology",
+    "journal_example": "ISME J",
+    "check": "it studies microbes or microbial communities (such as the gut microbiome), their genomes or metabolism, how they interact with their hosts, or maternal and child health and early-life development",
+    "not_like": "such as plant science, environmental chemistry or materials science, even when it uses words like \"culture\" or \"colony\"",
+    "filter_words": [
+      "microbio*", "microbiom*", "microbiota*", "bacteri*", "metagenom*", "metabolom*", "\"metabolic model*\"",
+      "\"flux balance\"", "\"constraint-based\"", "\"genome-scale\"", "bifidobacter*", "lactobacill*",
+      "\"short-chain fatty\"", "butyrate", "\"milk oligosaccharide*\"", "probiotic*", "prebiotic*", "dysbiosis",
+      "commensal*", "\"cross-feeding\"", "\"gut-brain\"", "breastfe*", "\"human milk\"", "infant*", "maternal",
+      "pregnan*", "neurodevelopment*"
+    ]
+  },
+  "sources": {
+    "biorxiv": {
+      "enabled": true,
+      "category": "microbiology"
+    },
+    "pubmed": {
+      "enabled": true,
+      "journals": {
+        "Microbiome": "Microbiome",
+        "Gut Microbes": "Gut Microbes"
+      },
+      "exclude_types": [
+        "Published Erratum",
+        "Comment",
+        "Editorial",
+        "Letter",
+        "News",
+        "Biography",
+        "Interview",
+        "Introductory Journal Article",
+        "Retraction of Publication",
+        "Retracted Publication",
+        "Expression of Concern"
+      ],
+      "email": ""
+    }
+  },
+  "more_sources": {
+    "preprints": {
+      "biorxiv:systems biology": "bioRxiv · Systems biology",
+      "biorxiv:bioinformatics": "bioRxiv · Bioinformatics",
+      "biorxiv:genomics": "bioRxiv · Genomics",
+      "biorxiv:neuroscience": "bioRxiv · Neuroscience",
+      "medrxiv:pediatrics": "medRxiv · Pediatrics",
+      "medrxiv:nutrition": "medRxiv · Nutrition",
+      "medrxiv:psychiatry and clinical psychology": "medRxiv · Psychiatry"
+    },
+    "journals": {
+      "mSystems": "mSystems",
+      "ISME J": "The ISME Journal",
+      "Cell Host Microbe": "Cell Host & Microbe",
+      "Nat Microbiol": "Nature Microbiology",
+      "NPJ Biofilms Microbiomes": "npj Biofilms and Microbiomes",
+      "Brain Behav Immun": "Brain, Behavior, and Immunity"
+    },
+    "general_journals": {
+      "Nature": "Nature",
+      "Science": "Science",
+      "Cell": "Cell",
+      "Nat Commun": "Nature Communications",
+      "Proc Natl Acad Sci U S A": "PNAS",
+      "Elife": "eLife",
+      "Sci Adv": "Science Advances",
+      "Cell Rep": "Cell Reports",
+      "PLoS Biol": "PLOS Biology",
+      "PLoS Comput Biol": "PLOS Computational Biology",
+      "Mol Syst Biol": "Molecular Systems Biology",
+      "Front Microbiol": "Frontiers in Microbiology",
+      "Microbiol Spectr": "Microbiology Spectrum",
+      "Nutrients": "Nutrients"
+    }
+  },
+  "posting": {
+    "hashtag": "#microbiome",
+    "hook_max_chars": 200
+  },
+  "gemini": {
+    "model": "gemini-3.5-flash-lite",
+    "fallback_model": "gemini-3.1-flash-lite",
+    "embedding_model": "gemini-embedding-2"
+  },
+  "bot": {
+    "approval": true,
+    "update_hour_utc": 7,
+    "papers_per_digest": 3,
+    "recent_days": 7,
+    "search_days": 60,
+    "keep_days": 400,
+    "backfill_days": 365,
+    "backfill_per_day": 500,
+    "summaries_per_day": 10,
+    "searches_per_day": 30,
+    "follows_per_person": 20,
+    "watches_per_person": 10,
+    "more_per_day": 5
+  },
+  "topics": {
+    "gut": ["Gut microbiome & host", "gut microbiome composition and function, host-microbe interactions, colonization and the gut environment"],
+    "modeling": ["Metabolic modeling", "genome-scale metabolic models, constraint-based modeling, flux balance analysis, community metabolic models"],
+    "infant": ["Infant microbiome & HMOs", "infant gut microbiome development, Bifidobacterium, human milk oligosaccharides, breastfeeding and infant feeding"],
+    "metabolism": ["Microbial metabolism", "microbial cross-feeding, short-chain fatty acids, microbiome-derived metabolites, metabolic diversity"],
+    "gutbrain": ["Gut–brain axis", "the microbiota-gut-brain axis, microbes and brain development, behavior and mental health"],
+    "maternal": ["Maternal & child health", "pregnancy, maternal depression and anxiety, mother-child cohorts, child health"],
+    "neurodev": ["Early neurodevelopment", "early-life brain development, child cognitive and socioemotional development, pediatric neuroimaging"],
+    "omics": ["Multi-omics & systems biology", "metagenomics, metabolomics, multi-omics integration, systems biology and computational microbiology"],
+    "ecology": ["Microbial ecology", "microbial community ecology, community assembly, functional and metabolic diversity"],
+    "disease": ["Microbiome & disease", "the microbiome in immunity, inflammation, infection and chronic disease"]
+  }
+}

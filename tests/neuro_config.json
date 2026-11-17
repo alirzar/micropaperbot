@@ -1,0 +1,132 @@
+{
+  "name": "Neuro Paper Bot",
+  "field": {
+    "name": "neuroscience",
+    "papers": "brain papers",
+    "general_examples": "Nature or eLife",
+    "journal_example": "J Neurosci",
+    "check": "it studies the brain or nervous system, or the mind and behavior they produce",
+    "not_like": "such as machine learning, immunology or materials science, even when it uses words like \"neural\" or \"memory\"",
+    "filter_words": [
+      "brain*", "neur*", "cortex", "cortical", "hippocamp*", "synap*", "glia*", "astrocyt*", "microglia*",
+      "oligodendrocyt*", "axon*", "dendrit*", "cerebell*", "thalam*", "hypothalam*", "amygdal*", "striat*",
+      "dopamin*", "serotonin*", "\"nervous system\"", "\"spinal cord\"", "retina*", "olfactor*", "auditory",
+      "somatosensory", "nocicept*", "cognit*", "sleep", "alzheimer*", "parkinson*", "epilep*", "schizophreni*",
+      "autis*", "psychiatr*", "anxiety", "mental"
+    ]
+  },
+  "sources": {
+    "biorxiv": {
+      "enabled": true,
+      "category": "neuroscience"
+    },
+    "pubmed": {
+      "enabled": true,
+      "journals": {
+        "Neuron": "Neuron",
+        "Nat Neurosci": "Nature Neuroscience",
+        "J Neurosci": "Journal of Neuroscience"
+      },
+      "exclude_types": [
+        "Published Erratum",
+        "Comment",
+        "Editorial",
+        "Letter",
+        "News",
+        "Biography",
+        "Interview",
+        "Introductory Journal Article",
+        "Retraction of Publication",
+        "Retracted Publication",
+        "Expression of Concern"
+      ],
+      "email": ""
+    }
+  },
+  "more_sources": {
+    "preprints": {
+      "biorxiv:animal behavior and cognition": "bioRxiv · Behavior",
+      "medrxiv:neurology": "medRxiv · Neurology",
+      "medrxiv:psychiatry and clinical psychology": "medRxiv · Psychiatry"
+    },
+    "journals": {
+      "Brain": "Brain",
+      "Cereb Cortex": "Cerebral Cortex",
+      "eNeuro": "eNeuro",
+      "Neuroimage": "NeuroImage",
+      "J Neurophysiol": "Journal of Neurophysiology",
+      "J Cogn Neurosci": "Journal of Cognitive Neuroscience",
+      "Biol Psychiatry": "Biological Psychiatry",
+      "Mol Psychiatry": "Molecular Psychiatry",
+      "Ann Neurol": "Annals of Neurology"
+    },
+    "general_journals": {
+      "Nature": "Nature",
+      "Science": "Science",
+      "Cell": "Cell",
+      "Elife": "eLife",
+      "Proc Natl Acad Sci U S A": "PNAS",
+      "Curr Biol": "Current Biology",
+      "Cell Rep": "Cell Reports",
+      "Nat Commun": "Nature Communications",
+      "Sci Adv": "Science Advances",
+      "PLoS Biol": "PLOS Biology",
+      "PLoS Comput Biol": "PLOS Computational Biology",
+      "Nat Hum Behav": "Nature Human Behaviour"
+    }
+  },
+  "selection": {
+    "lookback_days": 4,
+    "daily_picks": {
+      "biorxiv": 2,
+      "pubmed": 1
+    },
+    "min_score": 6
+  },
+  "schedule": {
+    "batch_hour_utc": 13,
+    "weekdays_only": true,
+    "draft_expire_days": 3
+  },
+  "posting": {
+    "platforms": ["linkedin"],
+    "telegram_channel": "",
+    "min_hours_between_posts": 2,
+    "hashtag": "#neuroscience",
+    "hook_max_chars": 200
+  },
+  "gemini": {
+    "model": "gemini-3.5-flash-lite",
+    "fallback_model": "gemini-3.1-flash-lite",
+    "embedding_model": "gemini-embedding-2"
+  },
+  "bot": {
+    "approval": true,
+    "update_hour_utc": 6,
+    "papers_per_digest": 3,
+    "recent_days": 7,
+    "search_days": 60,
+    "keep_days": 400,
+    "backfill_days": 365,
+    "backfill_per_day": 500,
+    "summaries_per_day": 10,
+    "searches_per_day": 30,
+    "follows_per_person": 20,
+    "watches_per_person": 10,
+    "more_per_day": 5
+  },
+  "topics": {
+    "memory": ["Learning & memory", "learning and memory, hippocampus, synaptic plasticity, memory consolidation and replay"],
+    "systems": ["Circuits & systems", "neural circuits, population dynamics, electrophysiology, systems neuroscience"],
+    "cognition": ["Cognition & behavior", "attention, decision-making, perception, cognitive neuroscience and behavior"],
+    "computational": ["Computational & AI", "computational neuroscience, models and theory of the brain, neural networks and machine learning"],
+    "sensory": ["Sensory systems", "vision, hearing, touch, smell and taste, sensory processing"],
+    "motor": ["Motor control", "movement, motor cortex, basal ganglia, cerebellum, motor learning"],
+    "molecular": ["Molecular & cellular", "synapses, ion channels, receptors, gene expression, neurons and glia at the cellular level"],
+    "development": ["Development", "brain development, neurogenesis, axon guidance, critical periods"],
+    "affect": ["Reward, emotion & stress", "dopamine, serotonin and neuromodulators, reward, emotion, stress, social behavior"],
+    "disorders": ["Brain disorders", "neurodegeneration, Alzheimer's and Parkinson's disease, epilepsy, psychiatric disorders"],
+    "imaging": ["Human brain imaging", "fMRI, EEG, MEG, human neuroimaging, brain connectivity"],
+    "methods": ["Methods & tools", "new techniques: imaging methods, optogenetics, recording technology, datasets and software"]
+  }
+}

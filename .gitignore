@@ -1,0 +1,16 @@
+# Local secrets and settings
+.env
+.claude/settings.local.json
+
+# Python
+.venv/
+__pycache__/
+
+# Card previews from card.py
+previews/
+
+# The bot's database: people's Telegram IDs and interests stay on the machine running it
+data/db/
+
+# The bot's log, from scripts/run_bot.sh
+logs/
