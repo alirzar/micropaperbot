@@ -20,6 +20,6 @@ mkdir -p logs
 while true; do
     "$PYTHON" "$(pwd)/scripts/bot.py" >> logs/bot.log 2>&1
     status=$?
-    echo "$(date -u '+%Y-%m-%d %H:%M:%S') The bot stopped (exit code $status); starting it again in $RESTART_DELAY seconds." >> logs/bot.log
+    echo "$(date -u '+%Y-%m-%d %H:%M:%S UTC') The bot stopped (exit code $status); starting it again in $RESTART_DELAY seconds." >> logs/bot.log
     sleep "$RESTART_DELAY"
 done
