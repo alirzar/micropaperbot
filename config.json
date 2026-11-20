@@ -5,6 +5,9 @@
     "papers": "microbiome and early-life papers",
     "general_examples": "Nature Communications or Frontiers in Microbiology",
     "journal_example": "ISME J",
+    "topic_example": "human milk oligosaccharides",
+    "watch_example": "short-chain fatty acids",
+    "keywords_example": "gut microbiome, Bifidobacterium, metabolic modeling",
     "check": "it studies microbes or microbial communities (such as the gut microbiome), their genomes or metabolism, how they interact with their hosts, or maternal and child health and early-life development",
     "not_like": "such as plant science, environmental chemistry or materials science, even when it uses words like \"culture\" or \"colony\"",
     "filter_words": [
@@ -91,7 +94,7 @@
     "update_hour_utc": 7,
     "papers_per_digest": 3,
     "recent_days": 7,
-    "search_days": 60,
+    "search_days": 365,
     "keep_days": 400,
     "backfill_days": 365,
     "backfill_per_day": 500,

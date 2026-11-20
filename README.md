@@ -11,7 +11,8 @@ It's the same bot as [neuropaperbot](https://github.com/alirzar/neuropaperbot), 
 - **Joining:** someone sends `/start`, and you get **✅ Approve / ❌ Deny**. Once approved, they pick from 10 areas, describe their interests in their own words, choose their sources, and pick a time zone, an hour, the days of the week, and how many papers they want each time (1 to 10, three to start with). Then they see a summary of their choices, can change any part, and tap **✅ Start my digest**: nothing is sent before that. `/settings` shows the same summary anytime.
 - **A digest** at their hour, on the days they pick (every day to start with): the papers that suit them best and that they haven't seen yet, from the past week, or from as far back as they choose with `/range`: 2 weeks, a month, 2 months, and 6 months or a year once the bot has [filled in that far](#going-back-a-year). Each comes as a card with **👍 / 👎** (which tune later picks), **💾 Save**, **📃 Abstract** (the whole abstract as text: the card only has room for its start), **📄 Summary**, **📋 Copy** and **🔗 Similar** (the 5 closest recent papers). A 💡 line on each card says why it was picked: the interest it matched, and whether it came from their sources. A **➡️ 3 more** button under the digest brings the next papers on their list, up to 5 times a day.
 - **Sources:** `/sources` lists where papers come from: bioRxiv and medRxiv sections, microbiology and microbiome journals, and general journals such as Nature Communications, PNAS and Frontiers in Microbiology, from which only the microbiome and early-life papers come. Nothing is ticked to start with: each person ticks the ones they want, or none. **➕ Add a journal** takes any journal PubMed indexes, by name, abbreviation or ISSN. The bot checks that it published in the past year, and then offers it to everyone.
-- **On request:** `/find <topic>` searches the last 60 days of papers. Pasting a DOI or a bioRxiv or medRxiv link gets a plain-language summary. `/popular` shows this week's papers that at least two people gave 👍 or saved, as counts without names. `/export` sends someone's saved papers as a citation file for Zotero, EndNote or Mendeley (`/export bibtex` for LaTeX), with full details from Crossref.
+- **Search:** typing a topic, a method or a question, like *human milk oligosaccharides*, searches the past year of papers the bot has (`/find` does the same, and so does **🔎 Search** under a digest). Papers that use the search's own words, such as a gene or a species, rank higher, and **➡️ 5 more** brings the next matches, up to 30.
+- **On request:** pasting a DOI or a bioRxiv or medRxiv link gets a plain-language summary. `/popular` shows this week's papers that at least two people gave 👍 or saved, as counts without names. `/export` sends someone's saved papers as a citation file for Zotero, EndNote or Mendeley (`/export bibtex` for LaTeX), with full details from Crossref.
 - **Alerts:** `/follow <name>` sends a message when that author publishes, in any PubMed journal or on bioRxiv. `/watch <topic>` sends one the day a new paper mentions that topic or is among the week's closest matches to it, up to 3 a day.
 - **Commands:** `/digest`, `/find`, `/popular`, `/saved`, `/export`, `/follow`, `/following`, `/unfollow`, `/watch`, `/watching`, `/unwatch`, `/topics`, `/keywords`, `/sources`, `/time`, `/days`, `/range`, `/settings`, `/privacy` and `/stop`; and for you, `/users` and `/stats` (people, papers, reactions and Gemini use over the past week).
 
@@ -45,7 +46,7 @@ You need a Telegram bot and a Gemini API key.
 
 ```
 digest - Today's papers, now
-find - Search recent papers
+find - Search for papers on a topic
 saved - Papers you saved
 follow - Get a message when an author publishes
 following - Authors you follow
@@ -146,11 +147,12 @@ In `config.json`:
 | `field.general_examples`, `field.journal_example` | Examples in `/sources`: two general journals, and a journal abbreviation for **➕ Add a journal** |
 | `field.filter_words` | Words that pick the field's papers out of general journals, searched in titles and abstracts on PubMed. They also decide whether a journal someone adds counts as general: it does when fewer than 60% of its papers use them. |
 | `field.check`, `field.not_like` | What Gemini checks a paper from a general journal is about, and examples of what isn't |
+| `field.topic_example`, `field.watch_example`, `field.keywords_example` | Examples in the bot's messages: something to search for, a topic to `/watch`, and interests in someone's own words |
 | `bot.approval` | `true`: you approve each new person. `false`: anyone can join. |
 | `bot.update_hour_utc` | When (UTC) the daily paper update runs. It's 07:00, an hour after neuropaperbot's, so the two don't query PubMed at the same time if they share a server. |
 | `bot.papers_per_digest` | Papers per digest, until someone picks their own with `/settings` |
 | `bot.recent_days` | How far back each daily update looks, and how far back digests reach unless someone picks a longer `/range` |
-| `bot.search_days`, `bot.keep_days` | How far back `/find` looks, and when old papers are forgotten (saved ones are kept). `/range` never offers more than `keep_days`. |
+| `bot.search_days`, `bot.keep_days` | How far back searches look, and when old papers are forgotten (saved ones are kept). `/range` never offers more than `keep_days`. |
 | `bot.backfill_days`, `bot.backfill_per_day` | How far back to fill in older papers (0 turns it off), and how many fingerprints a day it may use. Days are counted as Gemini counts them, from midnight Pacific time, when its daily limits reset. |
 | `bot.summaries_per_day`, `bot.searches_per_day` | Daily limits per person (searches include journal searches); you have none |
 | `bot.more_per_day` | How many times a day each person can tap **➡️ more**; you have no limit |

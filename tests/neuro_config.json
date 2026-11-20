@@ -5,6 +5,9 @@
     "papers": "brain papers",
     "general_examples": "Nature or eLife",
     "journal_example": "J Neurosci",
+    "topic_example": "hippocampal replay",
+    "watch_example": "grid cells",
+    "keywords_example": "hippocampal replay, sleep, memory consolidation",
     "check": "it studies the brain or nervous system, or the mind and behavior they produce",
     "not_like": "such as machine learning, immunology or materials science, even when it uses words like \"neural\" or \"memory\"",
     "filter_words": [
@@ -105,7 +108,7 @@
     "update_hour_utc": 6,
     "papers_per_digest": 3,
     "recent_days": 7,
-    "search_days": 60,
+    "search_days": 365,
     "keep_days": 400,
     "backfill_days": 365,
     "backfill_per_day": 500,

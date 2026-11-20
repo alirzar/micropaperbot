@@ -11,6 +11,9 @@ DEFAULTS = {
     "papers": "microbiome and early-life papers",  # what general journals contribute
     "general_examples": "Nature Communications or Frontiers in Microbiology",
     "journal_example": "ISME J",  # how PubMed abbreviates a journal in this field
+    "topic_example": "human milk oligosaccharides",  # "type what you're looking for, like ..."
+    "watch_example": "short-chain fatty acids",  # "/watch short-chain fatty acids"
+    "keywords_example": "gut microbiome, Bifidobacterium, metabolic modeling",  # what someone works on, in their words
     "check": "it studies microbes or microbial communities (such as the gut microbiome), their genomes or metabolism, "
     "how they interact with their hosts, or maternal and child health and early-life development",
     "not_like": 'such as plant science, environmental chemistry or materials science, even when it uses words like "culture" or "colony"',

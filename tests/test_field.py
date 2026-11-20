@@ -171,6 +171,12 @@ cards = [p for m, p in calls if m == "sendPhoto" and p["chat_id"] == ANA]
 check(len(cards) == 3 and "Bifidobacterium" in cards[0]["caption"], f"the first digest: {cards[0]['caption'][:60]!r}")
 message(ANA, "/help")
 check(texts(ANA)[-1].startswith("I send you a daily digest of new microbiome papers"), "its help, once set up")
+check("like <i>human milk oligosaccharides</i>" in texts(ANA)[-1], "with a search example from its field")
+message(ANA, "/watch")
+check("<code>/watch short-chain fatty acids</code>" in texts(ANA)[-1], "and a /watch example")
+message(ANA, "Bifidobacterium and milk oligosaccharides")
+check(any("best matches for <i>Bifidobacterium and milk oligosaccharides</i>" in t for t in texts(ANA)[-8:]),
+      "typing a topic searches its papers")
 
 print("\nALL OK" if not failures else f"\n{len(failures)} FAILED: {failures}")
 raise SystemExit(1 if failures else 0)
